@@ -44,13 +44,14 @@ document.querySelector("#telefonoUsuario").innerHTML = (telefonoUsuario);
 
 //-----------DATOS TABLA PRODUCTOS----------------------
 const canProducto = parametrosURL.get('canProducto');
+const codigoProducto = parametrosURL.get('codigoProducto');
 const Producto = parametrosURL.get('Producto');
 const productoDetalle = parametrosURL.get('productoDetalle');
 const precioUnitario = parametrosURL.get('precioUnitario');
 const precioTotal = parametrosURL.get('precioTotal');
 /*FUNCION PARA UNIR ARRAYS*/
-function arrayProductos(datos1, datos2, datos3, datos4, datos5) {
-    let contenido = [datos1, datos2, datos3, datos4, datos5];
+function arrayProductos(datos1, datos2, datos3, datos4, datos5, datos6) {
+    let contenido = [datos1, datos2, datos3, datos4, datos5, datos6];
 
     return contenido.reduce(
         (a, v) => (v.forEach((e, i) => a[i].push(e)), a),
@@ -61,12 +62,13 @@ function arrayProductos(datos1, datos2, datos3, datos4, datos5) {
 }
 //Convertimos en array cantidad, item, precio
 const cantidadProducto = canProducto.split(" , ");
+const codProducto = codigoProducto.split(" , ");
 const nombreProducto = Producto.split(" , ");
 const detalleProducto = productoDetalle.split(" , ");
 const precioU = precioUnitario.split(" , ");
 const precioT = precioTotal.split(" , ");
 
-const ventas = arrayProductos(cantidadProducto, nombreProducto, detalleProducto, precioU, precioT);
+const ventas = arrayProductos(cantidadProducto, codProducto, nombreProducto, detalleProducto, precioU, precioT);
 
 /* Mostrando parametros en mi HTML */
 /* URL YOUTUBE https://www.youtube.com/watch?v=dDy2krKujCY
@@ -78,10 +80,11 @@ ventas.forEach(p => {
     let fila = document.createElement('tr');
 
     fila.innerHTML += `<td class="td">${p[0]}</td>`
-    fila.innerHTML += `<td class="tdProducto">${p[1]}</td>`
-    fila.innerHTML += `<td class="tdProductoD">${p[2]}</td>`
-    fila.innerHTML += `<td class="td">${p[3]}</td>`
+    fila.innerHTML += `<td class="td">${p[1]}</td>`
+    fila.innerHTML += `<td class="tdProducto">${p[2]}</td>`
+    fila.innerHTML += `<td class="tdProductoD">${p[3]}</td>`
     fila.innerHTML += `<td class="td">${p[4]}</td>`
+    fila.innerHTML += `<td class="td">${p[5]}</td>`
 
     cuerpoTabla.appendChild(fila);
 });
@@ -161,3 +164,4 @@ document.querySelector("#firmaNombrePropietario").innerHTML = (firmaNombrePropie
 const tengaEnCuenta = parametrosURL.get('tengaEnCuenta');
  // Mostrando parametros en mi HTML
 document.querySelector("#tengaEnCuenta").innerHTML = (tengaEnCuenta);
+
