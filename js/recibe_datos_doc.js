@@ -26,10 +26,15 @@ document.querySelector("#direccion").innerHTML = (direccion);
 const codigoCliente = parametrosURL.get('codigoCliente');
 const nombreCliente = parametrosURL.get('nombreCliente');
 const telefonoCliente = parametrosURL.get('telefonoCliente');
+const puntosCliente = parametrosURL.get('puntosCliente');
+const puntosTotalCliente = parametrosURL.get('puntosTotalCliente');
 /* Mostrando parametros en mi HTML */
 document.querySelector("#codigoCliente").innerHTML = (codigoCliente);
 document.querySelector("#nombreCliente").innerHTML = (nombreCliente);
 document.querySelector("#telefonoCliente").innerHTML = (telefonoCliente);
+document.querySelector("#puntosCliente").innerHTML = (puntosCliente);
+document.querySelector("#puntosTotalCliente").innerHTML = (puntosTotalCliente);
+
 
 //-----------DATOS REGISTRO----------------------
 const numeroRegistro = parametrosURL.get('numeroRegistro');
