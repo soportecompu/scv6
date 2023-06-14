@@ -10,18 +10,21 @@ Para acceder a los parámetros de la URL crearemos un objeto de tipo URLSearchPa
 usaremos el método get() para obtener cada uno de los valores
 */
 //-----------DATOS EMPRESA----------------------
+const logo = parametrosURL.get('logo');
+const logotipo = logo.replace('|', '&');
+console.log(logotipo);
 const empresa = parametrosURL.get('empresa');
 const sucursal = parametrosURL.get('sucursal');
 const telefono = parametrosURL.get('telefono');
 const nit = parametrosURL.get('nit');
 const direccion = parametrosURL.get('direccion');
 /* Mostrando parametros en mi HTML */
+document.querySelector("#logo").src = (logotipo);
 document.querySelector("#empresa").innerHTML = (empresa);
 document.querySelector("#sucursal").innerHTML = (sucursal);
 document.querySelector("#telefono").innerHTML = (telefono);
 document.querySelector("#nit").innerHTML = (nit);
 document.querySelector("#direccion").innerHTML = (direccion);
-
 //-----------DATOS CLIENTES----------------------
 const codigoCliente = parametrosURL.get('codigoCliente');
 const nombreCliente = parametrosURL.get('nombreCliente');
